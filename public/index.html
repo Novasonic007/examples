@@ -5,48 +5,55 @@
         <title>Phaser 3.80 Examples</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="libs/bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/index.css">
-        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="libs/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>        
         <script src="js/getQueryString.js"></script>
         <script src="js/phaserSearch.js"></script>
         <script src="js/lastExamplesButton.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
+
         <script src="https://cdn.usefathom.com/script.js" data-site="VHINKCRJ" defer></script>
     </head>
     <body>
 
-    <nav class="breadcrumb" id="breadcrumb">
-        <a href="index.html"><img src="images/logo.png" width="144" height="31" /></a>
-		<div class="search">
-            <span>
-                <button type="button" class="last-examples-btn btn btn-sm" id="last-examples-button">Newest Examples</button>
-                <div id="last-examples-result">
-                    <div class="last-examples-result--title">
-                        Most Recently Added Examples
+    <nav class="breadcrumb d-flex justify-content-between" id="breadcrumb">
+        <span id="breadcrumb-list">
+            <a class="breadcrumb-item" href="index.html">3.80 / Home</a>
+        </span>
+        <span>
+            <a href="index.html"><img src="images/logo.png" width="144" height="31" /></a>
+        </span>
+        <span>
+            <div class="search">
+                <span>
+                    <button type="button" class="last-examples-btn btn btn-sm" id="last-examples-button">Newest Examples</button>
+                    <div id="last-examples-result">
+                        <div class="last-examples-result--title">
+                            Most Recently Added Examples
+                        </div>
+                        <div id="last-examples-result--content">
+                            <!-- Show result by JS -->
+                        </div>
                     </div>
-                    <div id="last-examples-result--content">
-                        <!-- Show result by JS -->
+                </span>
+                <input id="search-query">
+                <div class="search-icon-wrapper">
+                    <div class="search-icon">
+                        <div class="search-icon-circle"></div>
+                        <div class="search-icon-rectangle"></div>
                     </div>
                 </div>
-            </span>
-			<input id="search-query">
-			<div class="search-icon-wrapper">
-				<div class="search-icon">
-					<div class="search-icon-circle"></div>
-					<div class="search-icon-rectangle"></div>
-				</div>
-			</div>
-
-            <div id="search-results">
-
+    
+                <div id="search-results mt-2"></div>            
             </div>
-		</div>
-        <a class="breadcrumb-item" href="index.html">3.80 / Home</a>
+        </span>
+		
     </nav>
 
-    <div class="album">
-        <div class="container">
+    <div class="album ml-4 mr-4">
+        <div class="container-fluid">
             <div class="row" id="folderList"></div>
         </div>
     </div>
@@ -145,12 +152,12 @@
 
         currentCrumb = filename;
 
-        $('#breadcrumb').append(nav);
+        $('#breadcrumb-list').append(nav);
     }
 
     function removeBreadcrumb ()
     {
-        $('#breadcrumb > a').last().remove();
+        $('#breadcrumb-list > a').last().remove();
     }
 
     function downLevel (index, filename, skipOpen)
@@ -200,11 +207,11 @@
 
     function createBackFolder ()
     {
-        var div = $('<div></div>').addClass('card');
+        var div = $('<div></div>').addClass('card col-xl-2 col-12');
 
         var a = $('<a></a>', { href: 'index.html' + getURLWell(true) });
 
-        var img = $('<img />', { src: 'images/back.png', width: 128, height: 128 });
+        var img = $('<img />', { src: 'images/back.png', width: 128, height: 128, class: 'mt-3' });
 
         img.click(function (event) {
 
@@ -215,17 +222,19 @@
 
         a.append(img);
 
+        var cardBody = $('<div></div>').addClass('card-body');
         var p = $('<p></p>').addClass('card-text');
         p.append($('<a></a>', { href: 'index.html' + getURLWell(true) }).text('Back'));
+        cardBody.append(p);
 
-        div.append(a).append(p);
+        div.append(a).append(cardBody);
 
         $('#folderList').append(div);
     }
 
     function createBootFile (index, filename, filepath)
     {
-        var div = $('<div></div>').addClass('card');
+        var div = $('<div></div>').addClass('card col-xl-2 col-12');
 
         var a = $('<a></a>', { href: 'boot.html?src=' + filepath });
 
@@ -251,7 +260,7 @@
             return;
         }
 
-        var div = $('<div></div>').addClass('card');
+        var div = $('<div></div>').addClass('card col-xl-2 col-12');
 
         if (dir === 'scalemanager/')
         {
@@ -266,19 +275,21 @@
 
         var imgdiv = $('<div></div>').addClass('imageHolder');
 
-        var img1 = $('<img />', { src: 'screenshots/loading.png', width: 400, height: 300, class: 'card-image shot2' });
-        var img2 = $('<img />', { src: imgPath, width: 400, height: 300, class: 'card-image shot1' });
+        var img1 = $('<img />', { src: 'screenshots/loading.png', width: 400, height: 300, class: 'card-image shot2 mt-3' });
+        var img2 = $('<img />', { src: imgPath, width: 400, height: 300, class: 'card-image shot1 mt-3' });
 
         imgdiv.append(img1);
         imgdiv.append(img2);
 
         a.append(imgdiv);
 
+        var cardBody = $('<div></div>').addClass('card-body');
         var p = $('<p></p>').addClass('card-text');
 
         p.append($('<a></a>', { href: 'edit.html?src=' + filepath }).text(filename.replace('.js', '')));
+        cardBody.append(p);
 
-        div.append(a).append(p);
+        div.append(a).append(cardBody);
 
         $('#folderList').append(div);
     }
@@ -290,7 +301,7 @@
             return;
         }
 
-        var div = $('<div></div>').addClass('card');
+        var div = $('<div></div>').addClass('card col-xl-2 col-12');
 
         var a = $('<a></a>', { href: 'index.html' + getURLWell(false, filename) });
 
@@ -306,11 +317,13 @@
 
         a.append(img);
 
+        var cardBody = $('<div></div>').addClass('card-body');
         var p = $('<p></p>').addClass('card-text');
+
         p.append($('<a></a>', { href: 'index.html' + getURLWell(false, filename) }).text(filename));
+        cardBody.append(p);
 
-        div.append(a).append(p);
-
+        div.append(a).append(cardBody);
         $('#folderList').append(div);
     }
 
