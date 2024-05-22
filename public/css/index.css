@@ -235,3 +235,16 @@ body {
     padding: 10px;
     color: white;
 }
+
+.breadcrumb-item {
+    text-decoration: none;
+    color: #6e538a;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 0px;
+    color: #6c757d;
+    content: "/";
+}

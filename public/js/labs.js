@@ -65,12 +65,15 @@ $(document).ready(function () {
 
         });
 
-        var versionlist = $('<select>').prop('id', 'changeversion').insertAfter('#csslink');
+        console.log("HERE");
+        
+        var versionlist = $('<select>').
+            prop('id', 'changeversion').
+            addClass('custom-select w-50').
+            appendTo('#viewControlPanel');
 
         versionlist.on('change', function () {
-
             document.location.href = currentPage + '?src=' + filename + '&v=' + this.value;
-
         });
 
         var selected = false;
