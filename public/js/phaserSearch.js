@@ -154,7 +154,6 @@ PHASER.search = (function(){
                 score : item.score
             });
 
-
             $resultsContainer.append(html);
             count++;
         });
@@ -241,12 +240,10 @@ PHASER.search = (function(){
      */
     function bindSearchInput() {
         $('#search-query').on('keyup', function (event) {
-            if (event.which === 13) {
-                var query = $(this).val();
-                event.preventDefault();
-                console.log("Query search: ", query)
-                startSearching(query);
-            }
+            var query = $(this).val();
+            event.preventDefault();
+            console.log("Query search: ", query)
+            startSearching(query);
         });
     }
 
@@ -254,7 +251,6 @@ PHASER.search = (function(){
      * When the user clicks outside of the search bod or results container this hides the search box
      */
     function bindCloseSearchPopup(){
-
         $("body").on("click", function(event){
             var $searchContainer = $(event.target).closest("div.search"),
                 clickedInSearch = $searchContainer.length > 0;

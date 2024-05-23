@@ -48,7 +48,7 @@
                         </div>
                     </span>
                     <input placeholder="Search..." id="search-query" class="form-control" />
-                    <div id="search-results" class="mt-2"></div>
+                    <div id="search-results" class="mt-2" style="display: block;right: 0px;"></div>
                 </div>
             </div>
         </div>
@@ -58,18 +58,18 @@
         <button class="btn backButton" id="backButton">
             <div class="button-box">
                 <span class="button-elem">
-                  <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
-                    ></path>
-                  </svg>
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z">
+                        </path>
+                    </svg>
                 </span>
                 <span class="button-elem">
-                  <svg viewBox="0 0 46 40">
-                    <path
-                      d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
-                    ></path>
-                  </svg>
+                    <svg viewBox="0 0 46 40">
+                        <path
+                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z">
+                        </path>
+                    </svg>
                 </span>
             </div>
         </button>
@@ -77,8 +77,6 @@
             <div class="row" id="folderList"></div>
         </div>
     </div>
-
-    <!-- Modals section -->
 
     <script type="text/javascript">
         var dir = "";
@@ -127,9 +125,7 @@
             }
 
             //  Update browser history
-
             var stateObj = { well: well };
-
             history.pushState(stateObj, "", "index.html" + getURLWell());
         }
 
@@ -208,8 +204,12 @@
         }
 
         function createBackFolder() {
-            var BackFolderContainer = $("<div></div>").addClass("d-flex justify-content-center p-2 col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 ");
-            var div = $("<div></div>").addClass("card h-100 align-items-center");
+            var BackFolderContainer = $("<div></div>").addClass(
+                "d-flex justify-content-center p-2 col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 "
+            );
+            var div = $("<div></div>").addClass(
+                "card h-100 align-items-center"
+            );
 
             var a = $("<a></a>", { href: "index.html" + getURLWell(true) });
 
@@ -272,14 +272,16 @@
                 return;
             }
 
-            var fileContainer = $("<div></div>").addClass("d-flex justify-content-center p-2 col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2");
-            var div = $("<div></div>").addClass("card h-100 align-items-center");
+            var fileContainer = $("<div></div>").addClass(
+                "d-flex justify-content-center p-2 col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"
+            );
+            var div = $("<div></div>").addClass(
+                "card h-100 align-items-center"
+            );
 
-            if (dir === "scalemanager/") {
-                var a = $("<a></a>", { href: "100.html?src=" + filepath });
-            } else {
-                var a = $("<a></a>", { href: "view.html?src=" + filepath });
-            }
+            const url = (dir === "scalemanager/")
+                ? "100.html?src=" + filepath
+                : "view.html?src=" + filepath;
 
             const imgPath = filepath
                 .replace(/^src/, "screenshots")
@@ -287,7 +289,9 @@
                 .replace(/\.js$/, ".png")
                 .toLowerCase();
 
-            var imgdiv = $("<div class='card-img-top'></div>").addClass("imageHolder");
+            var imgdiv = $("<div class='card-img-top'></div>").addClass(
+                "imageHolder"
+            );
 
             var img1 = $("<img />", {
                 src: "screenshots/loading.png",
@@ -305,7 +309,7 @@
             imgdiv.append(img1);
             imgdiv.append(img2);
 
-            a.append(imgdiv);
+            div.append(imgdiv);
 
             var cardBody = $("<div></div>").addClass("card-body");
             var p = $("<p></p>").addClass("card-text");
@@ -316,8 +320,13 @@
                 )
             );
             cardBody.append(p);
-            div.append(a).append(cardBody);
-            fileContainer.append(div)
+            div.append(cardBody);
+            fileContainer.append(div);
+
+            // Add click event to the card
+            div.on("click", function () {
+                window.location.href = url;
+            });
 
             $("#folderList").append(fileContainer);
         }
@@ -327,8 +336,12 @@
                 return;
             }
 
-            var folderContainer = $("<div></div>").addClass("d-flex justify-content-center p-2 col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2");
-            var div = $("<div></div>").addClass("card h-100 align-items-center");
+            var folderContainer = $("<div></div>").addClass(
+                "d-flex justify-content-center p-2 col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"
+            );
+            var div = $("<div></div>").addClass(
+                "card h-100 align-items-center"
+            );
 
             var a = $("<a></a>", {
                 href: "index.html" + getURLWell(false, filename),
@@ -340,9 +353,7 @@
                 height: 128,
             });
 
-            img.click(function (event) {
-                // console.log('-> ' + filename);
-
+            div.click(function (event) {
                 downLevel(index, filename);
             });
 
@@ -353,7 +364,7 @@
 
             p.append(
                 $("<a></a>", {
-                    href: "index.html" + getURLWell(false, filename)
+                    href: "index.html" + getURLWell(false, filename),
                 }).text(filename)
             );
             cardBody.append(p);
@@ -435,27 +446,25 @@
             });
         });
 
-
         $("#backButton").click(function () {
             window.location = "index.html" + getURLWell(true);
         });
-
     </script>
 
     <!--
      This is the template for rendering search box results
      -->
     <script type="text/template" id="result-row-template">
-            <div class="result">
-                <a href="{{fullPath}}">
-                    {{title}}
-
-                </a>
-                <a href="?dir={{path}}" class="path">
-                    {{path}}
-                </a>
-            </div>
-        </script>
+        <div class="result p-2 mb-2">
+            <a href="{{fullPath}}" class="result-title d-block mb-1">
+                {{title}}
+            </a>
+            <a href="?dir={{path}}" class="result-path d-block">
+                {{path}}
+            </a>
+        </div>
+    </script>
+       
 </body>
 
 </html>

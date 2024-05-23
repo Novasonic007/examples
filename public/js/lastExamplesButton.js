@@ -7,18 +7,13 @@ $( document ).ready(function() {
         $("#last-examples-result").show();
         $.getJSON( "./recent-examples.json", function( data ) {
             $.each( data, function( key, val ) {
-
                 const parts = val.path.split('\\');
-
                 parts.shift();
-
                 let name = parts.join(' - ');
-
                 name = name.replace('.js', '');
-
                 $lastExamplesList.append(`
-                    <div class="result">
-                        <a href="view.html?src=${val.path}">
+                    <div class="result p-2 mb-2">
+                        <a href="view.html?src=${val.path}" class="result-title d-block mb-1">
                             ${name}
                         </a>
                     </div>
@@ -31,8 +26,6 @@ $( document ).ready(function() {
         // console.log("Event ", event.target)
         const $lastExamplesContainer = $(event.target).closest("#last-examples-button"),
             clickedInLastExamples = $lastExamplesContainer.length > 0;
-            // console.log("Last examples container ", $lastExamplesContainer)
-            // console.log("Clicked in last examples ", clickedInLastExamples)
             if(!clickedInLastExamples){
             $("#last-examples-result").hide();
         }
