@@ -203,46 +203,6 @@
             }
         }
 
-        function createBackFolder() {
-            var BackFolderContainer = $("<div></div>").addClass(
-                "d-flex justify-content-center p-2 col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 "
-            );
-            var div = $("<div></div>").addClass(
-                "card h-100 align-items-center"
-            );
-
-            var a = $("<a></a>", { href: "index.html" + getURLWell(true) });
-
-            var img = $("<img />", {
-                src: "images/back.png",
-                width: 128,
-                height: 128,
-                class: "mt-3",
-            });
-
-            img.click(function (event) {
-                // console.log('<- Back');
-
-                upLevel();
-            });
-
-            a.append(img);
-
-            var cardBody = $("<div></div>").addClass("card-body");
-            var p = $("<p></p>").addClass("card-text");
-            p.append(
-                $("<a></a>", {
-                    href: "index.html" + getURLWell(true),
-                }).text("Back")
-            );
-            cardBody.append(p);
-
-            div.append(a).append(cardBody);
-            BackFolderContainer.append(div);
-
-            $("#folderList").append(BackFolderContainer);
-        }
-
         function createBootFile(index, filename, filepath) {
             var div = $("<div></div>").addClass("card col-xl-2 col-12");
 

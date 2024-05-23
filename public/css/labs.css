@@ -177,7 +177,7 @@ button {
     cursor: pointer;
 }
 
-#nav a:Hover {
+#nav a:hover {
     text-decoration: underline;
     color: #fff;
 }
