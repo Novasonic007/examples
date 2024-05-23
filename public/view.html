@@ -32,46 +32,66 @@
     </head>
     <body>
         <div class="container-fluid p-2">
-            <div class="row">
-                <div class="col-12">
-                    <a class="btn btn-danger" id="backlink">Back</a>
+            <div class="row mb-4">
+                <div class="mt-4 ml-4 col-12">
+                    <a class="btn" id="backlink">
+                        <!-- <span>Back</span> -->
+                        <button class="backButton">
+                            <div class="button-box">
+                              <span class="button-elem">
+                                <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                                  <path
+                                    d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                                  ></path>
+                                </svg>
+                              </span>
+                              <span class="button-elem">
+                                <svg viewBox="0 0 46 40">
+                                  <path
+                                    d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                                  ></path>
+                                </svg>
+                              </span>
+                            </div>
+                          </button>
+                    </a>
                 </div>  
             </div>
-            <div class="row mt-2">
-                <div class="col-xl-6 col-12">
-                    <div class="" id="phaser-example"></div>
+            <div class="row justify-content-center mt-2">
+                <div class="col-md-7 col-sm-12">
+                    <div class="align-items-center" id="phaser-example"></div>
                 </div>
-                <div class="col-xl-6 col-12">
-                    <div id="viewControlPanel" class="d-flex flex-column">
+                <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                    <div id="viewControlPanel" class="d-flex flex-column h-100">
                         <div class="mb-2">
-                            <a class="btn btn-primary w-50" id="sandboxlink">Edit in Sandbox</a>
+                            <a class="subBtn btn w-100" id="sandboxlink"><span>Edit in Sandbox</span></a>
                         </div>
                         <div class="mb-2">
-                            <a class="btn btn-primary w-50" id="iframelink">iFrame</a>
+                            <a class="subBtn btn w-100" id="iframelink"><span>iFrame</span></a>
                         </div>
                         <div class="mb-2">
-                            <a class="btn btn-primary w-50" id="csslink">100%</a>
+                            <a class="subBtn btn w-100" id="csslink"><span>100%</span></a>
                         </div>
                         <div class="mb-2">
-                            <a class="btn btn-primary w-50" id="labslink">Labs</a>
+                            <a class="subBtn btn w-100" id="labslink"><span>Labs</span></a>
                         </div>
                         <div class="mb-2">
-                            <a class="btn btn-primary w-50" id="mobilelink">Mobile</a>
+                            <a class="subBtn btn w-100" id="mobilelink"><span>Mobile</span></a>
                         </div>
                         <div class="mb-2">
-                            <a class="btn btn-primary w-50" id="editlink">Edit</a>
+                            <a class="subBtn btn w-100" id="editlink"><span>Edit</span></a>
                         </div>
                         <div class="mb-2">
-                            <a class="btn btn-primary w-50" id="forcemode">Force Canvas</a>
+                            <a class="subBtn btn w-100" id="forcemode"><span>Force Canvas</span></a>
                         </div>   
                         <div class="mb-2">
-                            <a class="btn btn-primary w-50" id="sourcelink">Source</a>
+                            <a class="subBtn btn w-100" id="sourcelink"><span>Source</span></a>
                         </div>   
                         <div class="mb-2">
-                            <a class="btn btn-primary w-50" id="comparelink">Compare</a>
+                            <a class="subBtn btn w-100" id="comparelink"><span>Compare</span></a>
                         </div> 
                         <div class="mb-2">
-                            <a class="btn btn-primary w-50" id="webgldebug">WebGL Debug</a>
+                            <a class="subBtn btn w-100" id="webgldebug"><span>WebGL Debug</span></a>
                         </div> 
                     </div>
                 </div>
@@ -79,7 +99,7 @@
 
             <div id="phaser-spectorjs"></div>
 
-            <input
+            <input 
                 id="clippy"
                 type="text"
                 style="position: absolute; left: -2000px"

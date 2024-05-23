@@ -10,6 +10,79 @@ body {
     /* background: linear-gradient(to bottom, #2a0845, #6441a5); */
 }
 
+.backButton {
+    display: block;
+    position: relative;
+    width: 56px;
+    height: 56px;
+    margin: 0;
+    overflow: hidden;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+}
+
+.backButton:before,
+.backButton:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    inset: 7px;
+}
+
+.backButton:before {
+    border: 4px solid #f0eeef;
+    transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+        transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+.backButton:after {
+    border: 4px solid #96daf0;
+    transform: scale(1.3);
+    transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+        transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+}
+
+.backButton:hover:before,
+.backButton:focus:before {
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+        transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.backButton:hover:after,
+.backButton:focus:after {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+        transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+.button-box {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.button-elem {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 17px 18px 0 18px;
+    transform: rotate(180deg);
+    fill: #f0eeef;
+}
+
+.backButton:hover .button-box,
+.backButton:focus .button-box {
+    transition: 0.4s;
+    transform: translateX(-56px);
+}
+
 #folderList,
 #fileList {
     background-color: rgba(255, 255, 255, 0.1);
@@ -30,7 +103,7 @@ body {
     padding: 20px;
 }
 
-.card {
+/* .card {
     text-align: center;
     padding-bottom: 5px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -38,7 +111,34 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 200px;
+} */
+
+/* .card {
+    width: 190px;
+    height: 254px;
+    border-radius: 1rem;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+} */
+
+.card {
+    width: 190px;
+    height: 254px;
+    background: rgb(40,40,55);
+    background: linear-gradient(344deg, rgb(81, 63, 99) 0%, rgba(16,16,18,1) 50%);
+    box-shadow: 4px 6px 14px #00000036;
+    border-radius: 15px;
+    color: #F9F9F9;
+    padding: 16px;
+    transition: all .3s;
 }
+   
+.card:hover {
+    margin-top: -5px;
+    box-shadow: 4px 6px 14px #ffffff36;
+}
+
 
 .card .imageHolder {
     position: relative;
@@ -238,7 +338,12 @@ body {
 
 .breadcrumb-item {
     text-decoration: none;
-    color: #6e538a;
+    color: #ffffff;
+}
+
+.breadcrumb-item:hover {
+    color: #96b9ff;
+    text-decoration: none;
 }
 
 .breadcrumb-item+.breadcrumb-item::before {

@@ -69,7 +69,8 @@ $(document).ready(function () {
         
         var versionlist = $('<select>').
             prop('id', 'changeversion').
-            addClass('custom-select w-50').
+            addClass('custom-select w-100').
+            css('text-align', 'center').
             appendTo('#viewControlPanel');
 
         versionlist.on('change', function () {

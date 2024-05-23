@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <a href="index.html"><img src="images/logo.png" width="144" height="31" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,24 @@
     </nav>
 
     <div class="album ml-4 mr-4">
-        <button class="btn btn-secondary" id="backButton"><b>Back</b></button>
+        <button class="btn backButton" id="backButton">
+            <div class="button-box">
+                <span class="button-elem">
+                  <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                    ></path>
+                  </svg>
+                </span>
+                <span class="button-elem">
+                  <svg viewBox="0 0 46 40">
+                    <path
+                      d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                    ></path>
+                  </svg>
+                </span>
+            </div>
+        </button>
         <div class="container-fluid mt-2">
             <div class="row" id="folderList"></div>
         </div>
@@ -191,8 +208,8 @@
         }
 
         function createBackFolder() {
-            var BackFolderContainer = $("<div></div>").addClass("p-2 col-xl-2 col-12");
-            var div = $("<div></div>").addClass("card h-100");
+            var BackFolderContainer = $("<div></div>").addClass("d-flex justify-content-center p-2 col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 ");
+            var div = $("<div></div>").addClass("card h-100 align-items-center");
 
             var a = $("<a></a>", { href: "index.html" + getURLWell(true) });
 
@@ -255,8 +272,8 @@
                 return;
             }
 
-            var fileContainer = $("<div></div>").addClass("p-2 col-xl-2 col-12");
-            var div = $("<div></div>").addClass("card h-100");
+            var fileContainer = $("<div></div>").addClass("d-flex justify-content-center p-2 col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2");
+            var div = $("<div></div>").addClass("card h-100 align-items-center");
 
             if (dir === "scalemanager/") {
                 var a = $("<a></a>", { href: "100.html?src=" + filepath });
@@ -310,8 +327,8 @@
                 return;
             }
 
-            var folderContainer = $("<div></div>").addClass("p-2 col-xl-2 col-12");
-            var div = $("<div></div>").addClass("card h-100");
+            var folderContainer = $("<div></div>").addClass("d-flex justify-content-center p-2 col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2");
+            var div = $("<div></div>").addClass("card h-100 align-items-center");
 
             var a = $("<a></a>", {
                 href: "index.html" + getURLWell(false, filename),
