@@ -285,7 +285,7 @@ deep-extend@~0.6.0:
   resolved "https://registry.npmjs.org/deep-extend/-/deep-extend-0.6.0.tgz"
   integrity sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==
 
-devtools-protocol@*, devtools-protocol@0.0.1107588:
+devtools-protocol@0.0.1107588:
   version "0.0.1107588"
   resolved "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.1107588.tgz"
   integrity sha512-yIR+pG9x65Xko7bErCUSQaDLrO/P1p3JUzEk7JCU4DowPcGHkTGUGQapcfcLc4qj0UaALwZ+cr0riFgiqpixcg==

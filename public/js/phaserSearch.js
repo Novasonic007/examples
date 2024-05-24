@@ -128,7 +128,6 @@ PHASER.search = (function(){
      */
     function renderResults(results){
         var $resultsContainer = $("#search-results");
-
         $resultsContainer.html("");
 
         var count = 0;
